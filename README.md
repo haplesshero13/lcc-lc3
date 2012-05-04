@@ -4,9 +4,9 @@
 ###RECENT CHANGES
 ####4  May 2012
 
-*Sean Smith, Stephen Cannon*
+*Sean Smith (Dartmouth College), Stephen Canon*
 
-Modified configure to compile on Mac OS X, especially Lion.
+Modified configure to compile on Mac OS X, especially Lion, but should be compatible with Leopard/Snow Leopard.
 
 
 ###DESCRIPTION OF CONTENTS
