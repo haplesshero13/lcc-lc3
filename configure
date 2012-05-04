@@ -57,6 +57,8 @@ case `$uname -s` in
 	SunOS*)  echo "Configuring for Solaris..."
 		OS_SIM_LIBS="-lcurses -lsocket -lnsl"
 		;;
+    Darwin*) echo "Configuring for Darwin..."
+        eval "gcc=/usr/bin/gcc-4.2";
 esac
 echo "Installation directory is $INSTALL_DIR"
 
