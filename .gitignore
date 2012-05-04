@@ -1,0 +1,28 @@
+# Temp and backup files
+*~
+*.swp
+
+# Mac OS X Stuff
+.DS_Store
+.Trashes
+.Spotlight-V100
+._*
+
+# Other source repository archive directories (protects when importing)
+*.hg*
+.svn
+CVS
+
+# Object files
+*.o
+
+# Libraries
+*.lib
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+
+# Executables
+*.exe
+*.out
