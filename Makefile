@@ -65,13 +65,13 @@ distclean: clean clear
 
 install: ALL
 	${MKDIR} -p ${INSTALL_DIR}
-	-${CP} -f src/rcc${EXE} etc/lcc${EXE} cpp/cpp${EXE} lc3pp/lc3pp${EXE} \
-		COPYING NO_WARRANTY README test/regression/Makefile test/regression/fig16.14.c ${INSTALL_DIR}
+	-${CP} -f src/rcc${EXE} etc/lcc${EXE} cpp/cpp${EXE} lc3pp/lc3pp${EXE} ${INSTALL_DIR}
+#		COPYING NO_WARRANTY README test/regression/Makefile test/regression/fig16.14.c ${INSTALL_DIR}
 	${CHMOD} 555 ${INSTALL_DIR}/rcc${EXE} \
 		${INSTALL_DIR}/lcc${EXE} ${INSTALL_DIR}/cpp${EXE} \
 		${INSTALL_DIR}/lc3pp
-	${CHMOD} 444 ${INSTALL_DIR}/COPYING ${INSTALL_DIR}/NO_WARRANTY      \
-		${INSTALL_DIR}/README
+#	${CHMOD} 444 ${INSTALL_DIR}/COPYING ${INSTALL_DIR}/NO_WARRANTY      \
+#		${INSTALL_DIR}/README
 
 
 #
