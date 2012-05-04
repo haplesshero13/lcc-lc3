@@ -11,11 +11,11 @@ this software.  The installation information is in INSTALL.  TODO contains
 a to-do list.
 
 ###INSTALLATION INSTRUCTIONS
-Untar the package with a command like 'tar -xzf lcc-1.1.tar.gz.'
+Change to the lcc directory with `cd lcc-1.3`
 
-From the top-level directory type 'configure'
+From the top-level directory type `configure`
 
-Now install the lcc/lc3 binaries by typing 'make install'
+Now install the lcc/lc3 binaries by typing `make install`
 
 If everything goes well, the make process will create a directory off the
 top level called "install".  It should contain the various binaries needed
