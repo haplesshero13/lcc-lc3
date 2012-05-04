@@ -1,6 +1,14 @@
 #LC3 C Compiler
 ####Dartmouth Edition
 
+###RECENT CHANGES
+####4  May 2012
+
+*Sean Smith, Stephen Cannon*
+
+Modified configure to compile on Mac OS X, especially Lion.
+
+
 ###DESCRIPTION OF CONTENTS
 
 This is the preliminary distribution of LCC that supports the LC-3.  This

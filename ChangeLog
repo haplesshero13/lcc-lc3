@@ -1,3 +1,6 @@
+4  May 2012         Sean Smith and Stephen Cannon
+   Modified configure to compile on Mac OS X, especially Lion.
+
 23 March 2004		Sanjay J. Patel
     Modified lcc.c and lc3.c to customize the compile process around the LC-3 tools.
 
