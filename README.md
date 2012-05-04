@@ -16,6 +16,11 @@ This is the preliminary distribution of LCC that supports the LC-3. This
 is the slightly modified version of Ladsaria and Patel's LCC for use at Dartmouth College. The copyright information is in the file CPYRIGHT. There is absolutely no warranty for this software. Complete installation information is in INSTALL. TODO contains a to-do list.
 
 ##Installation Instructions
+
+First, you must install the [LC3 Tools](https://github.com/haplesshero13/lc3tools) to have `lc3as`.
+
+Download and unpack this source, either with `git clone git://github.com/haplesshero13/lc3tools.git` or by clicking on the ZIP download button at the top of this github page.
+
 Change to the lcc directory with `cd lcc-1.3`
 
 From the top-level directory type `configure`
@@ -27,7 +32,6 @@ top level called "install". It should contain the various binaries needed
 by the compiler, along with some informational files, such as this README
 file, a sample C file to compile, and a makefile for compiling that file.
 
-Next, you must install the [LC3 Tools](https://github.com/haplesshero13/lc3tools) to have `lc3as`.
 
 ##How To Use
 
