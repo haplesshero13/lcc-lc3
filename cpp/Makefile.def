@@ -1,0 +1,73 @@
+###############################################################################
+# Makefile (and Makefile.def) -- Makefile for the LC-3 tools
+#
+#  "Copyright (c) 2003 by Steven S. Lumetta."
+# 
+#  Permission to use, copy, modify, and distribute this software and its
+#  documentation for any purpose, without fee, and without written 
+#  agreement is hereby granted, provided that the above copyright notice
+#  and the following two paragraphs appear in all copies of this software,
+#  that the files COPYING and NO_WARRANTY are included verbatim with
+#  any distribution, and that the contents of the file README are included
+#  verbatim as part of a file named README with any distribution.
+#  
+#  IN NO EVENT SHALL THE AUTHOR BE LIABLE TO ANY PARTY FOR DIRECT, 
+#  INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT 
+#  OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF THE AUTHOR 
+#  HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#  
+#  THE AUTHOR SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING, BUT NOT 
+#  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR 
+#  A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS ON AN "AS IS" 
+#  BASIS, AND THE AUTHOR NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, 
+#  UPDATES, ENHANCEMENTS, OR MODIFICATIONS."
+#
+#  Author:		Steve Lumetta
+#  Version:		1
+#  Creation Date:	18 October 2003
+#  Filename:		Makefile[.def]
+#  History:		
+# 	SSL	2	31 October 2003
+# 		Added lc3convert tool into distribution.
+# 	SSL	1	18 October 2003
+# 		Copyright notices and Gnu Public License marker added.
+#
+###############################################################################
+
+# These path names are automatically set by configure.
+GCC  = __GCC__
+FLEX = __FLEX__
+EXE  = __EXE__
+RM   = __RM__
+CP   = __CP__
+MKDIR = __MKDIR__
+CHMOD = __CHMOD__
+SED = __SED__
+MAKE = __MAKE__
+AR = __AR__
+RANLIB = __RANLIB__
+INSTALL_DIR = __INSTALL_DIR__
+TOP_DIR = __TOP_DIR__
+# End of configuration block.
+
+CFLAGS  = -g -m32
+LDFLAGS = -g -m32
+LC3AS   = ./lc3as
+
+%.o: %.c
+	${GCC} -c ${CFLAGS} -o $@ $<
+
+dist: cpp
+
+distclean::
+	${RM} -f *.o *~   
+
+distclear: distclean
+	${RM} -f cpp${EXE}
+
+cpp_OBJECTS = cpp.o eval.o getopt.o \
+	hideset.o include.o lex.o \
+	macro.o nlist.o tokens.o unix.o
+
+cpp: ${cpp_OBJECTS}
+	${GCC} ${CFLAGS} -o $@ $^

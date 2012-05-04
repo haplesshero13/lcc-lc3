@@ -1,0 +1,116 @@
+#!/bin/sh
+
+#
+# Parse the arguments...
+
+INSTALL_DIR=`pwd`/install
+TOP_DIR=`pwd`
+case $1 in 
+	--installdir) 
+	    INSTALL_DIR=$2 ;
+	    ;;
+	--help)
+	    echo "--installdir <directory in which to install>"
+	    echo "--help"
+	    exit
+	    ;;
+esac
+
+
+# Some binaries that we'll need, and the places that we might find them.
+
+binlist="uname gcc rm cp mkdir chmod sed make ranlib ar"
+pathlist="/bin /usr/bin /usr/local/bin /usr/ccs/bin"
+libpathlist="/lib /usr/lib /usr/local/lib"
+incpathlist="/include /usr/include /usr/local/include"
+
+
+# Find the binaries (or die trying).
+
+for binary in $binlist ; do
+    for path in $pathlist ; do
+	if [ -r $path/$binary ] ; then
+	    eval "$binary=${path}/${binary}" ;
+	    break ;
+	fi ;
+    done ;
+    eval "if [ -z \"\$$binary\" ] ; then echo \"Cannot locate $binary binary.\" ; exit ; fi"
+done
+
+
+# These default values are overridden below for some operating systems.
+
+EXE=""
+DYN="so"
+
+# Tailor the variables based on OS.
+
+case `$uname -s` in
+	CYGWIN*) 
+		EXE=".exe"
+		DYN="dll"
+		echo "Configuring for Cygwin..."
+		;;
+	Linux*) echo "Configuring for Linux..."
+		OS_SIM_LIBS="-lcurses"
+		;;
+	SunOS*)  echo "Configuring for Solaris..."
+		OS_SIM_LIBS="-lcurses -lsocket -lnsl"
+		;;
+esac
+echo "Installation directory is $INSTALL_DIR"
+
+
+# Splice it all in to the various Makefile.defs to create the Makefiles.
+
+# ./src
+rm -f Makefile
+sed -e "s __GCC__ $gcc g" -e "s __EXE__ $EXE g"     \
+    -e "s __RM__ $rm g" -e "s __RANLIB__ $ranlib g" -e "s __AR__ $ar g" \
+    -e "s __CP__ $cp g" -e "s __MKDIR__ $mkdir g" -e "s __CHMOD__ $chmod g" \
+    -e "s*__INSTALL_DIR__*$INSTALL_DIR*g" -e "s*__TOP_DIR__*$TOP_DIR*g" \
+    -e "s __MAKE__ $make g" -e "s __SED__ $sed g" Makefile.def > Makefile
+
+# ./src
+cd src
+rm -f Makefile
+sed -e "s __GCC__ $gcc g" -e "s __EXE__ $EXE g"     \
+    -e "s __RM__ $rm g" -e "s __RANLIB__ $ranlib g" -e "s __AR__ $ar g" \
+    -e "s __CP__ $cp g" -e "s __MKDIR__ $mkdir g" -e "s __CHMOD__ $chmod g" \
+    -e "s*__INSTALL_DIR__*$INSTALL_DIR*g" -e "s*__TOP_DIR__*$TOP_DIR*g" \
+    -e "s __MAKE__ $make g" -e "s __SED__ $sed g" Makefile.def > Makefile
+cd ../cpp
+rm -f Makefile
+sed -e "s __GCC__ $gcc g" -e "s __EXE__ $EXE g"     \
+    -e "s __RM__ $rm g" -e "s __RANLIB__ $ranlib g" -e "s __AR__ $ar g" \
+    -e "s __CP__ $cp g" -e "s __MKDIR__ $mkdir g" -e "s __CHMOD__ $chmod g" \
+    -e "s*__INSTALL_DIR__*$INSTALL_DIR*g" -e "s*__TOP_DIR__*$TOP_DIR*g" \
+    -e "s __MAKE__ $make g" -e "s __SED__ $sed g" Makefile.def > Makefile
+cd ../lib
+rm -f Makefile
+sed -e "s __GCC__ $gcc g" -e "s __EXE__ $EXE g"     \
+    -e "s __RM__ $rm g" -e "s __RANLIB__ $ranlib g" -e "s __AR__ $ar g" \
+    -e "s __CP__ $cp g" -e "s __MKDIR__ $mkdir g" -e "s __CHMOD__ $chmod g" \
+    -e "s*__INSTALL_DIR__*$INSTALL_DIR*g" -e "s*__TOP_DIR__*$TOP_DIR*g" \
+    -e "s __MAKE__ $make g" -e "s __SED__ $sed g" Makefile.def > Makefile
+cd ../lburg
+rm -f Makefile
+sed -e "s __GCC__ $gcc g" -e "s __EXE__ $EXE g"     \
+    -e "s __RM__ $rm g" -e "s __RANLIB__ $ranlib g" -e "s __AR__ $ar g" \
+    -e "s __CP__ $cp g" -e "s __MKDIR__ $mkdir g" -e "s __CHMOD__ $chmod g" \
+    -e "s*__INSTALL_DIR__*$INSTALL_DIR*g" -e "s*__TOP_DIR__*$TOP_DIR*g" \
+    -e "s __MAKE__ $make g" -e "s __SED__ $sed g" Makefile.def > Makefile
+cd ../etc
+rm -f Makefile
+sed -e "s __GCC__ $gcc g" -e "s __EXE__ $EXE g"     \
+    -e "s __RM__ $rm g" -e "s __RANLIB__ $ranlib g" -e "s __AR__ $ar g" \
+    -e "s __CP__ $cp g" -e "s __MKDIR__ $mkdir g" -e "s __CHMOD__ $chmod g" \
+    -e "s*__INSTALL_DIR__*$INSTALL_DIR*g" -e "s*__TOP_DIR__*$TOP_DIR*g" \
+    -e "s __MAKE__ $make g" -e "s __SED__ $sed g" Makefile.def > Makefile
+cd ../lc3pp
+rm -f Makefile
+sed -e "s __GCC__ $gcc g" -e "s __EXE__ $EXE g"     \
+    -e "s __RM__ $rm g" -e "s __RANLIB__ $ranlib g" -e "s __AR__ $ar g" \
+    -e "s __CP__ $cp g" -e "s __MKDIR__ $mkdir g" -e "s __CHMOD__ $chmod g" \
+    -e "s*__INSTALL_DIR__*$INSTALL_DIR*g" -e "s*__TOP_DIR__*$TOP_DIR*g" \
+    -e "s __MAKE__ $make g" -e "s __SED__ $sed g" Makefile.def > Makefile

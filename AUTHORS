@@ -1,0 +1,6 @@
+
+The authors of LCC are Christopher W. Fraser and David R. Hanson.
+
+Ajay Ladsaria wrote lc3.md and modified lex.c and c.h to make LC-3 a new target
+for LCC.
+

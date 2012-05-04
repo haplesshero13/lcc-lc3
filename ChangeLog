@@ -1,0 +1,36 @@
+23 March 2004		Sanjay J. Patel
+    Modified lcc.c and lc3.c to customize the compile process around the LC-3 tools.
+
+8  March 2004           Sanjay J. Patel
+    Cleaned up the configuration process and the install
+	
+7  January 2004         Ajay Ladsaria
+    stab.h: This file was not included in the distribution initially!
+    README: Updated to provide proper installation instructions.
+    Makefile.am: The man pages in doc/ correctly install
+    Example makefile in test/regressions/ has been updated and commented
+
+7  January 2004         Ajay Ladsaria
+    makefile.am: Fixed the installation of the 3 manual pages
+
+5  January 2004         Ajay Ladsaria
+    lc3pp.c: Now does not hard code max lengths for source line and global var
+        length
+    lc3pp.c: Allocates tmp files with unique names and deletes them
+    lc3pp.c: A third arg now specifies where to look for lib files
+
+17 December 2003        Ajay Ladsaria
+	lc3.md: Terminal names now reflect the one byte size of LC-3's basic types
+    lc3.md: Stripped useless comments and added some new ones
+
+15 December 2003        Ajay Ladsaria
+	printf now supports format strings %x,%o,%b to print a num as hex,oct,bin
+    lc3.md: defstring updated to handle all basic C string escape sequences
+
+15 December 2003        Ajay Ladsaria
+	printf now supports format strings %x,%o,%b to print a num as hex,oct,bin
+
+31 November 2003        Ajay Ladsaria
+	made all the makefiles recursive
+    used BUILT_SOURCES in makefile.am for *.md files
+

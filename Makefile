@@ -1,0 +1,125 @@
+###############################################################################
+# Makefile (and Makefile.def) -- Makefile for the LC-3 tools
+#
+#  "Copyright (c) 2003 by Steven S. Lumetta."
+# 
+#  Permission to use, copy, modify, and distribute this software and its
+#  documentation for any purpose, without fee, and without written 
+#  agreement is hereby granted, provided that the above copyright notice
+#  and the following two paragraphs appear in all copies of this software,
+#  that the files COPYING and NO_WARRANTY are included verbatim with
+#  any distribution, and that the contents of the file README are included
+#  verbatim as part of a file named README with any distribution.
+#  
+#  IN NO EVENT SHALL THE AUTHOR BE LIABLE TO ANY PARTY FOR DIRECT, 
+#  INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT 
+#  OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF THE AUTHOR 
+#  HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#  
+#  THE AUTHOR SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING, BUT NOT 
+#  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR 
+#  A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS ON AN "AS IS" 
+#  BASIS, AND THE AUTHOR NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, 
+#  UPDATES, ENHANCEMENTS, OR MODIFICATIONS."
+#
+#  Author:		Steve Lumetta
+#  Version:		1
+#  Creation Date:	18 October 2003
+#  Filename:		Makefile[.def]
+#  History:		
+# 	SSL	2	31 October 2003
+# 		Added lc3convert tool into distribution.
+# 	SSL	1	18 October 2003
+# 		Copyright notices and Gnu Public License marker added.
+#
+###############################################################################
+
+# These path names are automatically set by configure.
+GCC  = /usr/bin/gcc
+FLEX = __FLEX__
+EXE  = 
+RM   = /bin/rm
+CP   = /bin/cp
+MKDIR = /bin/mkdir
+CHMOD = /bin/chmod
+SED = /usr/bin/sed
+MAKE = /usr/bin/make
+AR = /usr/bin/ar
+RANLIB = /usr/bin/ranlib
+INSTALL_DIR = /Users/sws/my_home/apr2011/archive0/lcc-1.3/install
+# End of configuration block.
+
+CFLAGS  = -g -Wall -m32
+LDFLAGS = -g -m32
+LC3AS   = ./lc3as
+
+ALL: dist_lcc dist_cpp dist_lc3pp dist_rcc
+
+clean: dist_lcc_clean dist_cpp_clean dist_lc3pp_clean dist_rcc_clean 
+
+clear: dist_lcc_clear dist_cpp_clear dist_lc3pp_clear dist_rcc_clear
+
+distclean: clean clear
+	${RM} -f Makefile *~
+	-${RM} -rf ${INSTALL_DIR}
+
+install: ALL
+	${MKDIR} -p ${INSTALL_DIR}
+	-${CP} -f src/rcc${EXE} etc/lcc${EXE} cpp/cpp${EXE} lc3pp/lc3pp${EXE} \
+		COPYING NO_WARRANTY README test/regression/Makefile test/regression/fig16.14.c ${INSTALL_DIR}
+	${CHMOD} 555 ${INSTALL_DIR}/rcc${EXE} \
+		${INSTALL_DIR}/lcc${EXE} ${INSTALL_DIR}/cpp${EXE} \
+		${INSTALL_DIR}/lc3pp
+	${CHMOD} 444 ${INSTALL_DIR}/COPYING ${INSTALL_DIR}/NO_WARRANTY      \
+		${INSTALL_DIR}/README
+
+
+#
+# Makefile fragment for lcc
+#
+dist_lcc:
+	cd etc && ${MAKE} dist
+
+dist_lcc_clean:
+	cd etc && ${MAKE} distclean
+
+dist_lcc_clear:
+	cd etc && ${MAKE} distclear
+
+#
+# Makefile fragment for lc3pp
+#
+dist_lc3pp:
+	cd lc3pp && ${MAKE} dist
+
+dist_lc3pp_clean:
+	cd lc3pp && ${MAKE} distclean
+
+dist_lc3pp_clear:
+	cd lc3pp && ${MAKE} distclear
+
+#
+# Makefile fragment for cpp
+#
+dist_cpp:
+	cd cpp && ${MAKE} dist
+
+dist_cpp_clean:
+	cd cpp && ${MAKE} distclean
+
+dist_cpp_clear:
+	cd cpp && ${MAKE} distclear
+
+#
+# Makefile fragment for rcc
+#
+dist_rcc:
+	cd src && ${MAKE} dist
+
+dist_rcc_clean:
+	cd src && ${MAKE} distclean
+
+dist_rcc_clear:
+	cd src && ${MAKE} distclear
+
+

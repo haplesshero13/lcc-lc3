@@ -1,0 +1,12 @@
+
+Things that need to be done:
+
+gnu autoconf,automake's use needs to be improved.
+	--many of auto*'s true portability features are not used, when they perhaps
+	should be.
+	--auto*'s check feature where it performs some tests to see if the
+	installation was sucessful is not used
+	--the generate makefile doesn't build all the programs or perform all the
+	tests that the original makefile distributed with the lcc dist does
+
+
