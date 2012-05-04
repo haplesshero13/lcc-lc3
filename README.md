@@ -1,6 +1,7 @@
--------------------------------
-   DESCRIPTION OF CONTENTS
--------------------------------
+#LC3 C Compiler
+####Dartmouth Edition
+
+###DESCRIPTION OF CONTENTS
 
 This is the preliminary distribution of LCC that supports the LC-3.  This
 is my first time the auto configuration process, so if it doesn't work for
@@ -9,9 +10,7 @@ information is in the file CPYRIGHT.  There is absolutely no warranty for
 this software.  The installation information is in INSTALL.  TODO contains
 a to-do list.
 
--------------------------------
-   INSTALLATION INSTRUCTIONS
--------------------------------
+###INSTALLATION INSTRUCTIONS
 Untar the package with a command like 'tar -xzf lcc-1.1.tar.gz.'
 
 From the top-level directory type 'configure'
@@ -23,9 +22,7 @@ top level called "install".  It should contain the various binaries needed
 by the compiler, along with some informational files, such as this README
 file, a sample C file to compile, and a makefile for compiling that file.
 
--------------------------------
-   HOW TO USE
--------------------------------
+###HOW TO USE
 
 In the package there is a regressions and limitations test directiory in
 topdir/test/limitations and topdir/test/regression.  The regression
@@ -49,5 +46,8 @@ limited LC-3 register set.  See topdir/test/limitations for some examples
 that do not compile properly.  I hope to reduce this set of exceptional
 cases over time.
 
+###ORIGINAL AUTHORS
+
 Ajay Ladsaria
+
 Sanjay J. Patel (sjp@crhc.uiuc.edu)
