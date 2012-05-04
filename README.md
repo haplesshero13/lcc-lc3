@@ -1,6 +1,5 @@
 LCC-LC3 C Compiler
 ===================
-####Dartmouth Edition
 
 ##Recent Changes
 ####4 May 2012
