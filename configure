@@ -3,7 +3,7 @@
 #
 # Parse the arguments...
 
-INSTALL_DIR=$HOME/.lc3
+INSTALL_DIR="$HOME/.lc3"
 TOP_DIR=`pwd`
 case $1 in 
 	--installdir) 

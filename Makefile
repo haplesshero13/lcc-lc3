@@ -46,7 +46,7 @@ SED = /usr/bin/sed
 MAKE = /usr/bin/make
 AR = /usr/bin/ar
 RANLIB = /usr/bin/ranlib
-INSTALL_DIR = /Users/sws/my_home/apr2011/archive0/lcc-1.3/install
+INSTALL_DIR = ~/.lc3
 # End of configuration block.
 
 CFLAGS  = -g -Wall -m32
