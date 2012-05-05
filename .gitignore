@@ -27,3 +27,6 @@ CVS
 # Executables
 *.exe
 *.out
+
+# Makefile
+Makefile
