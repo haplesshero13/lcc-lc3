@@ -47,7 +47,7 @@ MAKE = __MAKE__
 AR = __AR__
 RANLIB = __RANLIB__
 LCCDIR = __INSTALL_DIR__
-BASEDIR = __INSTALL_DIR__
+BASEDIR = __TOP_DIR__
 # End of configuration block.
 
 CFLAGS  = -g -m32 -DLCCDIR='"${LCCDIR}/"' -DBASEDIR='"${BASEDIR}/"'
