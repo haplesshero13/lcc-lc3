@@ -12,11 +12,11 @@ Modified Makefile.def and configure to automatically install to `~/.lc3`. Also, 
 
 Modified configure to compile on Mac OS X, especially Lion, but should be compatible with Leopard/Snow Leopard.
 
-On Mac OS X Lion using Xcode 4.3, compiling with `/usr/bin/gcc` produces a binary lcc that crashes every time it is called. The fix is to use `/usr/bin/gcc-4.2`. Sean Smith reports that the issue appears to be with the MOVAPS instruction that gets compiled by `/usr/bin/gcc`, using the latest Xcode 4.3 on OS X Lion, which expects to copy aligned memory, but for some reason doesn't.
+On Mac OS X Lion using Xcode 4.3, compiling with `/usr/bin/gcc` produces a binary lcc that crashes every time it is called. The fix is to use the `-mno-sse` flag when compiling `rcc`. Sean Smith reports that the issue appears to be with the MOVAPS instruction that gets compiled by `/usr/bin/gcc`, using the latest llvm-gcc compiler that comes with Xcode 4.3 on OS X Lion, which expects to copy aligned memory, but for some reason doesn't.
 
 From Stephen Canon:
 
-> `/usr/bin/gcc` is a bit of a frankencompiler on Lion; it's actually an alias for `llvm-gcc-4.2`, which uses the front end of GCC-4.2 and the LLVM back end. I suspect that the GCC frontend is making an alignment assumption in its internal representation that would later get unwound by the GCC backend, but that never has a chance to happen...It should suffice to use /usr/bin/gcc-4.2 when building for Darwin. This will break for very old systems (which will probably have older versions of gcc), but IIRC will carry you back at least as far as 10.5.
+> `/usr/bin/gcc` is a bit of a frankencompiler on Lion; it's actually an alias for `llvm-gcc-4.2`, which uses the front end of GCC-4.2 and the LLVM back end. I suspect that the GCC frontend is making an alignment assumption in its internal representation that would later get unwound by the GCC backend, but that never has a chance to happen...
 
 
 ##Description Of Contents
