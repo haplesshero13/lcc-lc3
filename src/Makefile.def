@@ -50,8 +50,8 @@ INSTALL_DIR = __INSTALL_DIR__
 TOP_DIR = __TOP_DIR__
 # End of configuration block.
 
-CFLAGS  = -g -m32
-LDFLAGS = -g -m32
+CFLAGS  = -g -m32 -mno-sse
+LDFLAGS = -g -m32 -mno-sse
 LC3AS   = ./lc3as
 
 librcc_OBJECTS = alloc.o bind.o dag.o dagcheck.o decl.o \
