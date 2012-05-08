@@ -12,7 +12,7 @@ Modified Makefile.def and configure to automatically install to `~/.lc3`. Also, 
 
 Modified configure to compile on Mac OS X, especially Lion, but should be compatible with Leopard/Snow Leopard.
 
-On Mac OS X Lion using Xcode 4.3, ompiling with `/usr/bin/gcc` produces a binary for lcc that crashes every time it is called. The fix is to use `/usr/bin/gcc-4.2`. Sean Smith reports that the issue appears to be with the MOVAPS instruction that gets compiled by `/usr/bin/gcc`, using the latest Xcode 4.3 on OS X Lion.
+On Mac OS X Lion using Xcode 4.3, compiling with `/usr/bin/gcc` produces a binary lcc that crashes every time it is called. The fix is to use `/usr/bin/gcc-4.2`. Sean Smith reports that the issue appears to be with the MOVAPS instruction that gets compiled by `/usr/bin/gcc`, using the latest Xcode 4.3 on OS X Lion, which expects to copy aligned memory, but for some reason doesn't.
 
 From Stephen Canon:
 
