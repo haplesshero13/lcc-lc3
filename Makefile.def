@@ -65,6 +65,7 @@ distclean: clean clear
 
 install: ALL
 	${MKDIR} -p ${INSTALL_DIR}
+    echo "\$CFLAGS=$CFLAGS"
 	-${CP} -f src/rcc${EXE} etc/lcc${EXE} cpp/cpp${EXE} lc3pp/lc3pp${EXE} ${INSTALL_DIR}
 #		COPYING NO_WARRANTY README test/regression/Makefile test/regression/fig16.14.c ${INSTALL_DIR}
 	${CHMOD} 555 ${INSTALL_DIR}/rcc${EXE} \
